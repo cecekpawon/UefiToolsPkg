@@ -141,7 +141,7 @@ FileSystemSave (
   if (Status != EFI_SUCCESS) {
     Print(L"Could not open '\\%s\\%s': %r\n", VolSubDir, Path, Status);
     goto closeDir;
-    return Status;
+    //return Status;
   }
 
   Size = TableSize;
@@ -174,8 +174,9 @@ GetTable (
   return NULL;
 }
 
+STATIC
 CHAR16
-CharToUpper (
+InternalCharToUpper (
              IN CHAR16 Char
              )
 {
@@ -195,13 +196,13 @@ StriCmp (
   CHAR16 UpperFirstString;
   CHAR16 UpperSecondString;
 
-  UpperFirstString  = CharToUpper(*FirstString);
-  UpperSecondString = CharToUpper(*SecondString);
+  UpperFirstString  = InternalCharToUpper(*FirstString);
+  UpperSecondString = InternalCharToUpper(*SecondString);
   while ((*FirstString != '\0') && (UpperFirstString == UpperSecondString)) {
     FirstString++;
     SecondString++;
-    UpperFirstString  = CharToUpper(*FirstString);
-    UpperSecondString = CharToUpper(*SecondString);
+    UpperFirstString  = InternalCharToUpper(*FirstString);
+    UpperSecondString = InternalCharToUpper(*SecondString);
   }
 
   return UpperFirstString - UpperSecondString;

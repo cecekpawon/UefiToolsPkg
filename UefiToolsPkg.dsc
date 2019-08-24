@@ -92,14 +92,17 @@
   HiiLib|MdeModulePkg/Library/UefiHiiLib/UefiHiiLib.inf
   ShellLib|ShellPkg/Library/UefiShellLib/UefiShellLib.inf
   HandleParsingLib|ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf
+  ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
   #
   # StdLib deps.
   #
   UefiRuntimeLib|MdePkg/Library/UefiRuntimeLib/UefiRuntimeLib.inf
   UefiDriverEntryPoint|MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
 
-[LibraryClasses.ARM,LibraryClasses.AARCH64,LibraryClasses.PPC64]
-  FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
+  PeCoffGetEntryPointLib|MdePkg/Library/BasePeCoffGetEntryPointLib/BasePeCoffGetEntryPointLib.inf
+
+#[LibraryClasses.ARM,LibraryClasses.AARCH64,LibraryClasses.PPC64]
+#  FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
 
 [Components]
   UefiToolsPkg/Applications/GdbSyms/GdbSyms.inf
@@ -119,11 +122,11 @@
   UefiToolsPkg/Applications/dd/dd.inf
   UefiToolsPkg/Applications/grep/grep.inf
 
-[Components.X64,Components.AArch64]
-  UefiToolsPkg/Applications/tinycc/TCCInUEFI.inf
+#[Components.X64,Components.AArch64]
+#  UefiToolsPkg/Applications/tinycc/TCCInUEFI.inf
 
-[Components.ARM,Components.AARCH64,Components.PPC64]
-  UefiToolsPkg/Applications/FdtDump/FdtDump.inf
+#[Components.ARM,Components.AARCH64,Components.PPC64]
+#  UefiToolsPkg/Applications/FdtDump/FdtDump.inf
 
 [Components.IA32,Components.X64,Components.ARM,Components.AArch64]
   UefiToolsPkg/Drivers/QemuVideoDxe/QemuVideoDxe.inf {
@@ -131,3 +134,6 @@
       FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
       PciLib|MdePkg/Library/UefiPciLibPciRootBridgeIo/UefiPciLibPciRootBridgeIo.inf
   }
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /wd4018 /wd4054 /wd4090 /wd4098 /wd4131 /wd4152 /wd4244 /wd4267 /wd4706

@@ -1094,7 +1094,8 @@ InitializeQemuVideo (
   // Install EFI Driver Supported EFI Version Protocol required for
   // EFI drivers that are on PCI and other plug in cards.
   //
-  gQemuVideoDriverSupportedEfiVersion.FirmwareVersion = PcdGet32 (PcdDriverSupportedEfiVersion);
+  //gQemuVideoDriverSupportedEfiVersion.FirmwareVersion = PcdGet32 (PcdDriverSupportedEfiVersion);
+  gQemuVideoDriverSupportedEfiVersion.FirmwareVersion = EFI_2_10_SYSTEM_TABLE_REVISION;
   Status = gBS->InstallMultipleProtocolInterfaces (
                   &ImageHandle,
                   &gEfiDriverSupportedEfiVersionProtocolGuid,

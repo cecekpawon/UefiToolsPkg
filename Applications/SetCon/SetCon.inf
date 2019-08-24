@@ -30,6 +30,7 @@
 [LibraryClasses]
   UefiApplicationEntryPoint
   HandleParsingLib
+  ShellCommandLib
   DevicePathLib
   UtilsLib
 

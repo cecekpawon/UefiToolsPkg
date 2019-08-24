@@ -24,7 +24,7 @@
 
 #include "AcpiSupport.h"
 
-EFI_ACPI_SUPPORT_INSTANCE AcpiPrivate;
+EFI_ACPI_SUPPORT_INSTANCE mAcpiPrivate;
 
 EFI_STATUS
 LoadTable(
@@ -185,13 +185,13 @@ UefiMain (
     gBS->InstallConfigurationTable (&AcpiGuids[i], NULL);
   }
 
-  Status = AcpiSupportConstructor(&AcpiPrivate);
+  Status = AcpiSupportConstructor(&mAcpiPrivate);
   if (Status != EFI_SUCCESS) {
     Print(L"AcpiSupportConstructor failed\n");
     return Status;
   }
 
-  LoadTables(ImageProtocol->DeviceHandle, VolSubDir, &AcpiPrivate);
+  LoadTables(ImageProtocol->DeviceHandle, VolSubDir, &mAcpiPrivate);
 
   Print(L"All done!\n");
   return Status;

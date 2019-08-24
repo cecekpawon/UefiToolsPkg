@@ -51,7 +51,8 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  OptionRomPkg/OptionRomPkg.dec
+  #OptionRomPkg/OptionRomPkg.dec
+  UefiToolsPkg/UefiToolsPkg.dec
   OvmfPkg/OvmfPkg.dec
 
 [LibraryClasses]
@@ -72,6 +73,6 @@
   gEfiDevicePathProtocolGuid                    # PROTOCOL BY_START
   gEfiPciIoProtocolGuid                         # PROTOCOL TO_START
 
-[Pcd]
-  gOptionRomPkgTokenSpaceGuid.PcdDriverSupportedEfiVersion
+#[Pcd]
+#  gOptionRomPkgTokenSpaceGuid.PcdDriverSupportedEfiVersion
 
