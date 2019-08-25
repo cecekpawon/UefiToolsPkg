@@ -45,7 +45,7 @@ __RCSID("$NetBSD: swab.c,v 1.18 2011/01/04 17:14:07 martin Exp $");
 #include <unistd.h>
 
 void
-swab(const void * __restrict from, void * __restrict to, ssize_t len)
+swab(const void * /*__restrict*/ from, void * /*__restrict*/ to, ssize_t len)
 {
 	char temp;
 	const char *fp;

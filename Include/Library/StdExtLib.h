@@ -111,7 +111,7 @@ strsuftoll(const char *desc, const char *val,
            long long min, long long max);
 
 void
-swab(const void * __restrict from, void * __restrict to, ssize_t len);
+swab(const void * /*__restrict*/ from, void * /*__restrict*/ to, ssize_t len);
 
 int
 reallocarr(void *ptr, size_t number, size_t size);
